@@ -3,17 +3,20 @@ kind: Replicaset
 metadata:
   name: customer
   labels:
-    app: backend
+    app: packersmovers
+    tier: backend
 spec:
   replicas: 3
   minReadySeconds: 10
   selector:
     matchLabels:
-      app: backend
+      app: packersmovers
+      tier: backend
   template:
     metadata:
       labels:
-        app: backend
+        app: packersmovers
+        tier: backend
     spec:
       containers:
       - name: customer
