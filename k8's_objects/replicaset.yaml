@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Replicaset
 metadata:
-  name: customer-rs
+  name: customer
   labels:
-    app: packersmovers
+    app: backend
 spec:
   replicas: 3
   minReadySeconds: 10
   selector:
     matchLabels:
-      app: packersmovers
+      app: backend
   template:
     metadata:
       labels:
-        app: packersmovers
+        app: backend
     spec:
       containers:
       - name: customer
