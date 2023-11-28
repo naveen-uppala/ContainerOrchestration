@@ -6,7 +6,7 @@ metadata:
     app: packersmovers
     tier: backend
 spec:
-  replicas: 3
+  replicas: 5
   minReadySeconds: 10
   selector:
     matchLabels:
