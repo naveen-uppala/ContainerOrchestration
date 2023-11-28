@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+  labels:
+    app: packersmovers
+    tier: backend
+spec:
+  strategy:
+    type: Recreate
+  replicas: 4
+  selector:
+    matchLabels:
+      app: packersmovers
+  template:
+    metadata:
+      labels:
+        app: packersmovers
+        tier: backend
+    spec:
+      containers:
+      - name: customer
+        image: 936141866242.dkr.ecr.ap-south-1.amazonaws.com/customer:v2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
