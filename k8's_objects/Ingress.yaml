@@ -10,6 +10,8 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/subnets: subnet-04e139cacc50c68a1, subnet-0abdf1a7bf8d04d11, subnet-0c3a0d305d4e4570a  
     alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /status
+    
 spec:
   ingressClassName: alb
   rules:
@@ -20,5 +22,12 @@ spec:
             name: customer-service
             port:
               number: 8081
-        path: /
-        pathType: Prefix
+        path: /customer*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: driver-service
+            port:
+              number: 8081
+        path: /driver*
+        pathType: ImplementationSpecific        
