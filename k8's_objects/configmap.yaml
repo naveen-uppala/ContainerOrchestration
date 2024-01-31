@@ -4,12 +4,5 @@ metadata:
   name: customer-config-map
   namespace: default
 data:
-  Amazon-EKS-config: |-
-    ad_identifiers:
-      - customer
-
-    logs:
-      - source: packersmovers
-        service: customer
-        tags:
-          - env:dev  
+  db-username : "admin"
+  
