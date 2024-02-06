@@ -1,3 +1,128 @@
-i)  kubectl get nodes
-ii) kubectl describe node node_name
-iii) 
+=================================================================================================================================================================
+=================================================================================================================================================================
+
+Cluster & Node management:
+---------------------------------------------
+kubectl cluster-info - Display endpoint information about the master and services in the cluster
+kubectl version - Display the Kubernetes version running on the client and server
+kubectl config view - Get the configuration of the cluster
+kubectl api-resources - List the API resources that are available
+kubectl api-versions - List the API versions that are available
+kubectl get all --all-namespaces - List everything
+
+kubectl taint node <node_name> – Update the taints on one or more nodes.
+kubectl get node – List one or more nodes.
+kubectl describe node <node-name> - Describe a specific node.
+kubectl delete node <node_name> – Delete a node or multiple nodes.
+kubectl top node <node_name> – Display Resource usage (CPU/Memory/Storage) for nodes.
+kubectl get pods -o wide | grep <node_name> – Pods running on a node.
+kubectl cordon node <node_name> – Mark a node as unschedulable.
+kubectl uncordon node <node_name> – Mark node as schedulable.
+kubectl drain node <node_name> – Drain a node in preparation for maintenance.
+kubectl label node – Add or update the labels of one or more nodes
+
+Pods:
+-----------
+kubectl get pods  - List all pods in the cluster.
+kubectl get pod -n <namespace_name>	 - List all pods in a namespace.
+kubectl logs <pod-name> - Get logs from a pod.
+kubectl delete pod <pod_name> – Delete a pod.
+kubectl describe pod <pod_name> – Display the detailed state of a pods.
+kubectl create pod <pod_name> – Create a pod.
+kubectl exec <pod_name> -c <container_name> <command> – Execute a command against a container in a pod.
+kubectl exec -it <pod_name> /bin/sh – Get an interactive shell on a single-container pod.
+kubectl top pod – Display Resource usage (CPU/Memory/Storage) for pods.
+kubectl label pods <pod_name> new-label=<label name> – Add or update the label of a pod.
+kubectl get pods --show-labels – Get pods and show labels.
+kubectl port-forward <pod name> <port number to listen on>:<port number to forward to> – Listen on a port on the local machine and forward to a port on a specified pod.
+
+
+Deployments:
+-----------------
+
+kubectl create deployment <deployment-name> - Create a deployment.
+kubectl get deployment - List one or more deployments.
+kubectl describe deployment <deployment-name> - Describe a specific deployment.
+kubectl scale deployment <deployment-name> –replicas=<replica-count> - Scale a deployment.
+kubectl set image deployment/<deployment-name> <container-name>=<new-image-name> --	Update a deployment’s image.
+kubectl rollout status deployment/<deployment-name> - Rollout status of a deployment.
+kubectl rollout pause deployment/<deployment-name> - Pause a deployment rollout.
+kubectl rollout resume deployment/<deployment-name> - Resume a deployment rollout.
+kubectl rollout undo deployment/<deployment-name> -	Rollback a deployment to the previous revision.
+kubectl rollout undo deployment/<deployment-name> –to-revision=<revision-number>	- Rollback a deployment to a specific revision.
+kubectl delete deployment <deployment-name> - Delete deployment 
+kubectl edit deployment <deployment_name> – Edit and update deployment
+
+
+
+ReplicaSets:
+-------------------
+
+kubectl create -f <replicaset-definition.yaml> -Create a ReplicaSet.
+kubectl get replicasets	- List all ReplicaSets.
+kubectl describe replicaset <replicaset-name>	- Describe a specific ReplicaSet.
+kubectl scale replicaset <replicaset-name> –replicas=<replica-count> -	Scale a ReplicaSet
+
+Namespaces:
+------------------------
+
+kubectl describe namespace <namespace-name> - Describe a namespace.
+kubectl create namespace <namespace-name>	- Create a namespace.
+kubectl get namespaces - List all namespaces.
+kubectl config set-context –current –namespace=<namespace-name>	Switch to a different namespace.
+kubectl delete namespace <namespace-name> -	Delete a namespace.
+kubectl edit namespace <namespace_name> --	Edit and update the namespace definition.
+kubectl top namespace <namespace_name> – Display Resource (CPU/Memory/Storage) usage for a namespace.
+
+Statefulset:
+--------------
+kubectl create -f <statefulset-definition.yaml> - 	Create a StatefulSet.
+kubectl get statefulsets  -- List all StatefulSets.
+kubectl describe statefulset <statefulset-name>	-- Describe a specific StatefulSet.
+kubectl scale statefulset <statefulset-name> –replicas=<replica-count> -- Scale a StatefulSet.
+kubectl delete statefulset/[stateful_set_name] --cascade=false  -- Delete StatefulSet only (not pods)
+
+
+
+Daemonset:
+-------------------
+
+kubectl get daemonset – List one or more daemonsets.
+kubectl edit daemonset <daemonset_name> – Edit and update the definition of one or more daemonset.
+kubectl delete daemonset <daemonset_name> – Delete a daemonset.
+kubectl create daemonset <daemonset_name> – Create a new daemonset.
+kubectl rollout daemonset – Manage the rollout of a daemonset.
+kubectl describe ds <daemonset_name> -n <namespace_name> – Display the detailed state of daemonsets within a namespace.
+
+Logs:
+---------
+kubectl logs <pod_name> – Print the logs for a pod.
+kubectl logs --since=6h <pod_name> – Print the logs for the last 6 hours for a pod.
+kubectl logs --tail=50 <pod_name> – Get the most recent 50 lines of logs.
+kubectl logs -f <service_name> [-c <$container>] – Get logs from a service and optionally select which container.
+kubectl logs -f <pod_name> – Print the logs for a pod and follow new logs.
+kubectl logs -c <container_name> <pod_name> – Print the logs for a container in a pod.
+kubectl logs <pod_name> pod.log – Output the logs for a pod into a file named ‘pod.log’.
+kubectl logs --previous <pod_name> – View the logs for a previously failed pod
+
+Configmap & secrets:
+-----------------------------------
+
+kubectl create configmap <config-map-name> –from-file=<path-to-file> - Create a config map from a file.
+kubectl get configmaps -List all config maps.
+kubectl describe configmap <config-map-name> - Describe a specific config map.
+kubectl create secret <secret-type> <secret-name> –from-literal=<key>=<value> - Create a secret.
+kubectl delete configmap <config-map-name> - Delete a specific config map.
+kubectl get secrets - 	List all secrets.
+kubectl describe secret <secret-name> - Describe a specific secret
+kubectl delete secret <secret_name>	- Delete a specific secret.
+
+Service:
+--------------
+kubectl get services – List one or more services.
+kubectl describe services – Display the detailed state of a service.
+kubectl expose deployment [deployment_name] – Expose a replication controller, service, deployment, or pod as a new Kubernetes service.
+kubectl edit services – Edit and update one or more services.
+kubectl create service <service-type> <service-name> –tcp=<port> - Create a service.
+kubectl delete service <service-name> -	Delete a service.
+kubectl get endpoints <service-name> - Get information about a service.
