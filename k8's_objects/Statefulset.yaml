@@ -28,12 +28,3 @@ spec:
               secretKeyRef:
                 name: mysql-password
                 key: MYSQL_ROOT_PASSWORD
-  volumeClaimTemplates:
-  - metadata:
-      name: mysql-store
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      storageClassName: "linode-block-storage-retain"
-      resources:
-        requests:
-          storage: 5Gi
