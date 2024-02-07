@@ -15,16 +15,3 @@ spec:
     volumeID: vol-0e74f5d1f5d4dbb78
     fsType: ext4
   storageClassName: standard
-
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: customer-pv-claim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: standard
-  resources:
-    requests:
-      storage: 1Gi
