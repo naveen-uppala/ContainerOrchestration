@@ -1,0 +1,19 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: Immediate
+parameters:
+  csi.storage.k8s.io/fstype: xfs
+  type: gp3
+  # iopsPerGB: "50"
+  # encrypted: "true"
+reclaimPolicy: Retain
+mountOptions:
+  - debug
+allowedTopologies:
+- matchLabelExpressions:
+  - key: topology.ebs.csi.aws.com/zone
+    values:
+    - ap-south-1a

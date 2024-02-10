@@ -1,0 +1,22 @@
+mysql -u root -p
+
+SHOW DATABASES; 
+
+USE DATABASE_NAME;
+
+CREATE TABLE Catalog(
+  CatalogId INTEGER PRIMARY KEY,
+  Journal VARCHAR(25),
+  Publisher VARCHAR(25),
+  Edition VARCHAR(25),
+  Title VARCHAR(45),
+  Author VARCHAR(25)
+);
+
+SHOW TABLES;
+
+INSERT INTO Catalog 
+VALUES('1','Muscle Magazine','Jude Mag', 'June 2013',
+       'How to grow muscles','Muhammed Ali');
+
+SELECT * FROM Catalog;
