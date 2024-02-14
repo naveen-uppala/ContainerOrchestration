@@ -4,6 +4,7 @@ metadata:
   name: backend-service
   labels:
     app: packersmovers
+    tier: backend
 spec:
   type: LoadBalancer
   selector:
