@@ -2,9 +2,15 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: customer-pod
+  labels:
+    app: packersmovers    
 spec:
   containers:
   - name: customer
-    image: 573567580560.dkr.ecr.ap-south-1.amazonaws.com/customer:latest
+    image: 533266968694.dkr.ecr.ap-south-1.amazonaws.com/customer:2
     ports:
     - containerPort: 8081
+  # - name: webapp
+  #   image: nginx
+  #   ports:
+  #   - containerPort: 80 
