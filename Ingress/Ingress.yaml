@@ -8,11 +8,11 @@ metadata:
   annotations:
     # Ingress Core Settings
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/subnets: subnet-04e139cacc50c68a1, subnet-0abdf1a7bf8d04d11, subnet-0c3a0d305d4e4570a  
+    alb.ingress.kubernetes.io/subnets: subnet-061b0dd145e444875, subnet-0c821a62cb75f25be, subnet-03113ab7dc2eae892  
     alb.ingress.kubernetes.io/target-type: ip
-    # alb.ingress.kubernetes.io/healthcheck-path: /health
-    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:637423236688:certificate/5036cc63-34d6-4928-8ae8-2d599f578a7e
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-2:637423236688:certificate/34cf587c-b3ff-49cb-9cbe-4907105c6fd5
 
     
 spec:
