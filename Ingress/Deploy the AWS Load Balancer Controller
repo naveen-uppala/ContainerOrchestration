@@ -13,7 +13,7 @@ helm version --short
 ######################## Create IAM OIDC provider ############################
 
 eksctl utils associate-iam-oidc-provider \
-    --region ${AWS_REGION} \
+    --region AWS_REGION \
     --cluster batch15-cluster \
     --approve
 
