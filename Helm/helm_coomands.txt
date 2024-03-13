@@ -1,0 +1,31 @@
+
+To Upgrade:
+
+helm upgrade release_name --install chart_name --set image.tag=tag_name
+
+helm rollback release_name revsion_number chart_name
+
+-------
+
+helm uninstall release_name
+
+helm repo list
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo list
+
+helm repo remove bitnami
+
+helm repo add repository_name https://charts.bitnami.com/bitnami
+
+
+Search the repository:
+
+helm search repo repository_name
+
+helm search repo repository_name--versions
+
+
+
+helm status repository_name
