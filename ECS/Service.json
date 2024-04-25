@@ -1,0 +1,24 @@
+{
+    "serviceName": "reactjs-service",
+    "taskDefinition": "reactjs-app", // Task definition name
+    "cluster": "your-ecs-cluster", // ECS cluster name
+    "launchType": "EC2",
+    "desiredCount": 2, // Number of tasks you want to run
+    "deploymentConfiguration": {
+      "maximumPercent": 200,
+      "minimumHealthyPercent": 100
+    },
+    "networkConfiguration": {
+      "awsvpcConfiguration": {
+        "subnets": [
+          "subnet-xxxxxxxx",
+          "subnet-yyyyyyyy"
+        ],
+        "securityGroups": [
+          "sg-xxxxxxxx"
+        ],
+        "assignPublicIp": "ENABLED"
+      }
+    }
+  }
+  

@@ -1,0 +1,37 @@
+{
+    "family": "reactjs-app",
+    "containerDefinitions": [
+      {
+        "name": "reactjs-container",
+        "image": "your-reactjs-image:latest",
+        "cpu": 256, // CPU units (1 vCPU = 1024 CPU units)
+        "memory": 512, // Memory in MiB
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "hostPort": 3000
+          }
+        ]
+      }
+    ],
+    "networkMode": "bridge",
+    "cpu": "256", // Total CPU units for all containers in the task (1 vCPU = 1024 CPU units)
+    "memory": "512", // Total memory for all containers in the task in MiB
+    "requiresCompatibilities": [
+      "EC2"
+    ],
+    "executionRoleArn": "arn:aws:iam::your-account-id:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::your-account-id:role/ecsTaskExecutionRole",
+    "volumes": [],
+    "placementConstraints": [],
+    "compatibilities": [
+      "EC2"
+    ],
+    "requiresAttributes": [
+      {
+        "name": "ecs.capability.execution-role-ecr-pull"
+      }
+    ]
+  }
+  
