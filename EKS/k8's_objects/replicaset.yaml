@@ -4,19 +4,16 @@ metadata:
   name: customer
   labels:
     app: packersmovers
-    tier: backend
 spec:
   replicas: 5
   minReadySeconds: 10
   selector:
     matchLabels:
       app: packersmovers
-      tier: backend
   template:
     metadata:
       labels:
         app: packersmovers
-        tier: backend
     spec:
       containers:
       - name: customer
