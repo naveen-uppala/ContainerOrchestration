@@ -49,6 +49,8 @@ kubectl rollout status deployment/<deployment-name> - Rollout status of a deploy
 kubectl rollout pause deployment/<deployment-name> - Pause a deployment rollout.
 kubectl rollout resume deployment/<deployment-name> - Resume a deployment rollout.
 kubectl rollout undo deployment/<deployment-name> -	Rollback a deployment to the previous revision.
+kubectl rollout history deployment/abc -  View the rollout history of a deployment  
+kubectl rollout history deployment/abc --revision=3 -   View the details of deployment revision 3
 kubectl rollout undo deployment/<deployment-name> –to-revision=<revision-number>	- Rollback a deployment to a specific revision.
 kubectl delete deployment <deployment-name> - Delete deployment 
 kubectl edit deployment <deployment_name> – Edit and update deployment
