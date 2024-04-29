@@ -4,7 +4,6 @@ metadata:
   name: customer
   labels:
     app: packersmovers
-    tier: backend
 spec:
   strategy:
     type: RollingUpdate
@@ -16,16 +15,14 @@ spec:
   selector:
     matchLabels:
       app: packersmovers
-      tier: backend
   template:
     metadata:
       labels:
         app: packersmovers
-        tier: backend
     spec:
       containers:
       - name: customer
         image: 573567580560.dkr.ecr.ap-south-1.amazonaws.com/customer:3
         imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
