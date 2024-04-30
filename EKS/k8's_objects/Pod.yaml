@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: customer-pod
-  namespace: projecta
+  # namespace: projecta
   labels:
     app: packersmovers    
 spec:
@@ -10,7 +10,7 @@ spec:
   - name: customer
     image: 851271747310.dkr.ecr.us-east-2.amazonaws.com/customer:1
     ports:
-    - containerPort: 8081
+    - containerPort: 8080
   # - name: webapp
   #   image: nginx
   #   ports:
