@@ -12,4 +12,4 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8081
+      targetPort: 8080
