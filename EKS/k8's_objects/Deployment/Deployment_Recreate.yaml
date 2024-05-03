@@ -21,4 +21,4 @@ spec:
         image: 936141866242.dkr.ecr.ap-south-1.amazonaws.com/customer:v2
         imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
