@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-packersmovers-service
+  labels:
+    app: packersmovers
+  annotations:
+    # Ingress Core Settings
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-04e139cacc50c68a1, subnet-0abdf1a7bf8d04d11, subnet-0c3a0d305d4e4570a  
+    alb.ingress.kubernetes.io/target-type: ip
+    # alb.ingress.kubernetes.io/healthcheck-path: /health
+    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:637423236688:certificate/5036cc63-34d6-4928-8ae8-2d599f578a7e
+spec:
+  ingressClassName: alb
+  rules:
+    - host: customer.hpm.in
+      http:
+        paths:
+          - path: /customer*
+            pathType: Prefix
+            backend:
+              service:
+                name: customer-service
+                port:
+                  number: 8081
+    - host: driver.hpm.in
+      http:
+        paths:
+          - path: /driver*
+            pathType: Prefix
+            backend:
+              service:
+                name: driver-service
+                port:
+                  number: 8081
