@@ -24,13 +24,13 @@ spec:
           service:
             name: customer-service
             port:
-              number: 8081
+              number: 8080
         path: /customer*
         pathType: ImplementationSpecific
       - backend:
           service:
             name: driver-service
             port:
-              number: 8081
+              number: 8080
         path: /driver*
         pathType: ImplementationSpecific        
