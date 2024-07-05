@@ -1,4 +1,4 @@
-# Installing CLI tools for K8's
+# Steps for initial setup on Bastion host for deploying applications on EKS cluster
 
 ### Install kubectl CLI tool on EC2:
 
@@ -58,13 +58,13 @@ sudo mv /tmp/eksctl /usr/local/bin
 i)   aws configure
 ```
 ```
-ii)  AWS Access Key ID [None]: **XXXXXXXXXXXXXXXXXXXXXX**
+ii)  AWS Access Key ID [None]: XXXXXXXXXXXXXXXXXXXXXX
 ```
 ```
-iii) AWS Secret Access Key [None]: **XXXXXXXXXXXXXXXXXXXXXX**
+iii) AWS Secret Access Key [None]: XXXXXXXXXXXXXXXXXXXXXX
 ```
 ```
-iv)  Default region name [None]: **region-code**
+iv)  Default region name [None]: region-code
 ```
 ```
 v)   Default output format [None]:
@@ -73,7 +73,7 @@ v)   Default output format [None]:
 ### Update the cluster information in kubeconfig file on EC2:
 
 ```
-aws eks update-kubeconfig --name **cluster-name**  --region **region-code**
+aws eks update-kubeconfig --name cluster-name  --region region-code
 ```
 
 ### To check the list of configured kubernetes clusters run the below command:
@@ -85,5 +85,5 @@ aws eks list-clusters
 ### To describe the cluster information run the following command:
 
 ```
-aws eks describe-cluster --name **cluster-name**
+aws eks describe-cluster --name cluster-name
 ```
