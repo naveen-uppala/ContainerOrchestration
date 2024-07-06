@@ -1,0 +1,36 @@
+To Install and Upgrade:
+
+helm create helmchartname  --> To create a helm chart
+
+helm install release_name chart_name --> To deploy a new release of application
+
+helm upgrade release_name --install chart_name --set image.tag=tag_name --> To upgrade an existing release with new revision
+
+helm history release_name --> To check the history of a particular release
+
+helm rollback release_name revision_number chart_name --> To rollback to a specific release and revision.
+
+-------
+
+helm list --> To list the total releases
+
+helm uninstall release_name --> to delete a current release
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo list
+
+helm repo remove bitnami
+
+helm repo add repository_name https://charts.bitnami.com/bitnami
+
+
+Search the repository:
+
+helm search repo repository_name
+
+helm search repo repository_name--versions
+
+
+
+helm status repository_name
