@@ -28,7 +28,7 @@ kubectl get pod -n <namespace_name>	 - List all pods in a namespace.
 kubectl logs <pod-name> - Get logs from a pod.
 kubectl delete pod <pod_name> – Delete a pod.
 kubectl describe pod <pod_name> – Display the detailed state of a pods.
-kubectl create pod <pod_name> – Create a pod.
+kubectl run pod <pod_name> --image image-name  – Create a pod.
 kubectl exec <pod_name> -c <container_name> <command> – Execute a command against a container in a pod.
 kubectl exec -it <pod_name> /bin/sh – Get an interactive shell on a single-container pod.
 kubectl top pod – Display Resource usage (CPU/Memory/Storage) for pods.
