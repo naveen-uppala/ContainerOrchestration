@@ -33,7 +33,3 @@ Search the repository:
 helm search repo repository_name
 
 helm search repo repository_name--versions
-
-
-
-helm status repository_name
