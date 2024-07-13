@@ -1,4 +1,14 @@
 
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo list
+
+helm repo remove bitnami
+
+helm repo add repository_name https://charts.bitnami.com/bitnami
+
+
+
 To Install and Upgrade:
 
 helm create helmchartname  --> To create a helm chart
@@ -19,17 +29,10 @@ helm list --> To list the total releases
 
 helm uninstall release_name --> to delete a current release
 
-helm repo add bitnami https://charts.bitnami.com/bitnami
-
-helm repo list
-
-helm repo remove bitnami
-
-helm repo add repository_name https://charts.bitnami.com/bitnami
 
 
 Search the repository:
 
 helm search repo repository_name
 
-helm search repo repository_name--versions
+helm search repo repository_name --versions
