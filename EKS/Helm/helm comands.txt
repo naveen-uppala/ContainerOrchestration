@@ -23,6 +23,8 @@ helm history release_name --> To check the history of a particular release
 
 helm rollback release_name revision_number chart_name --> To rollback to a specific release and revision.
 
+helm get manifest release_name --revision revision_number --> To get the details of specific release with revision
+
 -------
 
 helm list --> To list the total releases
