@@ -54,6 +54,10 @@ eksctl create iamserviceaccount \
   --override-existing-serviceaccounts \
   --approve
 
+########################### Update EKS KubeConfig ###########################
+
+aws eks update-kubeconfig --name cluster-name  --region region-code
+
 ########################### Install the TargetGroupBinding CRDs ###########################
 
 1) kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
