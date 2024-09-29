@@ -17,7 +17,7 @@ helm install release_name chart_name --> To deploy a new release of application
 
 helm install release_name repo_name/chart_name --version chart_version --> With repo name, chart name and chart version
 
-helm upgrade release_name --install chart_name --set image.tag=tag_name --> To upgrade an existing release with new revision
+helm upgrade release-${CHART_NAME} --install ${CHART_NAME} --set image.tag=tag_name  --> To upgrade an existing release with new revision
 
 helm history release_name --> To check the history of a particular release
 
