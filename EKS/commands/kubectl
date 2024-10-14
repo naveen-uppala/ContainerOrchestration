@@ -23,6 +23,7 @@ kubectl label node – Add or update the labels of one or more nodes
 
 Pods:
 -----------
+kubectl run podname --image=imagename --port=XX --restart=Never
 kubectl get pods  - List all pods in the cluster.
 kubectl get pod -n <namespace_name>	 - List all pods in a namespace.
 kubectl logs <pod-name> - Get logs from a pod.
