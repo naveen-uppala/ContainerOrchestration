@@ -23,8 +23,6 @@
     ],
     "executionRoleArn": "arn:aws:iam::your-account-id:role/ecsTaskExecutionRole",
     "taskRoleArn": "arn:aws:iam::your-account-id:role/ecsTaskExecutionRole",
-    "volumes": [],
-    "placementConstraints": [],
     "compatibilities": [
       "EC2"
     ],
