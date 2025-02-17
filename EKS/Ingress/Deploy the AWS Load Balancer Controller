@@ -73,6 +73,8 @@ aws eks update-kubeconfig --name cluster-name  --region region-code
 2) helm upgrade -i aws-load-balancer-controller \
     eks/aws-load-balancer-controller \
     -n kube-system \
+    --set region=us-east-1
+    --set vpcId=vpc-079401ef4e8620ed6
     --set clusterName=eks-cluster \
     --set serviceAccount.create=false \
     --set serviceAccount.name=aws-load-balancer-controller \
