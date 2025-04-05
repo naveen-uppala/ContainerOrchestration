@@ -77,9 +77,3 @@ aws eks update-kubeconfig --name cluster-name  --region region-code
 ```
 aws eks list-clusters
 ```
-
-### To describe the cluster information run the following command:
-
-```
-aws eks describe-cluster --name cluster-name
-```
