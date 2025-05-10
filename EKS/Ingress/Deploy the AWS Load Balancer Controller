@@ -31,7 +31,9 @@ eksctl utils associate-iam-oidc-provider \
 ########################## Create a policy called AWSLoadBalancerControllerIAMPolicy #######################
 
 
-curl -o iam_policy.json https://raw.githubusercontent.com/naveen-uppala/ContainerOrchestration/main/EKS/Ingress/iam_policy.json
+curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.12.0/docs/install/iam_policy.json
+
+#curl -o iam_policy.json https://raw.githubusercontent.com/naveen-uppala/ContainerOrchestration/main/EKS/Ingress/iam_policy.json
 
 
 aws iam create-policy \
