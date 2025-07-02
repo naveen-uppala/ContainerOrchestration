@@ -63,7 +63,7 @@ ReplicaSets:
 kubectl create -f <replicaset-definition.yaml> -Create a ReplicaSet.
 kubectl get replicasets	- List all ReplicaSets.
 kubectl describe replicaset <replicaset-name>	- Describe a specific ReplicaSet.
-kubectl scale replicaset <replicaset-name> –replicas=<replica-count> -	Scale a ReplicaSet
+kubectl scale --replicas=no-of-replicas rs name-of-replicaset -	Scale a ReplicaSet
 
 Namespaces:
 ------------------------
