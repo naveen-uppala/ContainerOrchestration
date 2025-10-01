@@ -22,3 +22,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /customer/ping          # Endpoint to check for readiness (adjust according to your app)
+            port: 8080
+          initialDelaySeconds: 20    # Wait 20 seconds before the first probe
+          periodSeconds: 5         # Probe every 5 seconds
+          timeoutSeconds: 2         # Timeout if the probe takes longer than 2 seconds
+          failureThreshold: 3       # Mark the Pod as not ready after 3 consecutive failures        
