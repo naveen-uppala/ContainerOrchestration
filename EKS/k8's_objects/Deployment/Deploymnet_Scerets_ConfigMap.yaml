@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+  labels:
+    app: packersmovers
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  revisionHistoryLimit: 10
+  replicas: 3
+  selector:
+    matchLabels:
+      app: packersmovers
+  template:
+    metadata:
+      labels:
+        app: packersmovers
+    spec:
+      containers:
+      - name: customer
+        image: 841162679093.dkr.ecr.us-east-1.amazonaws.com/customer:6
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        # From ConfigMap
+        - name: DB_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: customer-config-map
+              key: db-endpoint
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: customer-config-map
+              key: db-name
+
+        # From Secret
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: db-username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: db-password
+
+        readinessProbe:
+          httpGet:
+            path: /customer/ping
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 3
