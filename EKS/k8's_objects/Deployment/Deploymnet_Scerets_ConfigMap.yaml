@@ -31,12 +31,12 @@ spec:
         - name: DB_ENDPOINT
           valueFrom:
             configMapKeyRef:
-              name: customer-config-map
+              name: db-config
               key: db-endpoint
         - name: DB_NAME
           valueFrom:
             configMapKeyRef:
-              name: customer-config-map
+              name: db-config
               key: db-name
 
         # From Secret
