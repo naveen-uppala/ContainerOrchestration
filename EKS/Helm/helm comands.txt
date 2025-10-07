@@ -13,7 +13,7 @@ To Install and Upgrade:
 
 helm create helmchartname  --> To create a helm chart
 
-helm install release_name chart_name --> To deploy a new release of application
+helm install release_name chart_name --set image.tag=tag_name --> To deploy a new release of application
 
 helm install release_name repo_name/chart_name --version chart_version --> With repo name, chart name and chart version
 
