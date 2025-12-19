@@ -113,7 +113,8 @@ Configmap & secrets:
 kubectl create configmap <config-map-name> –from-file=<path-to-file> - Create a config map from a file.
 kubectl get configmaps -List all config maps.
 kubectl describe configmap <config-map-name> - Describe a specific config map.
-kubectl create secret <secret-type> <secret-name> –from-literal=<key>=<value> - Create a secret.
+kubectl create secret <secret-type> <secret-name> –from-literal=<key>=<value> - Create a secret
+kubectl create secret generic my-secret-name --from-literal=username=admin --from-literal=password='S!B*d$zDsb='
 kubectl delete configmap <config-map-name> - Delete a specific config map.
 kubectl get secrets - 	List all secrets.
 kubectl describe secret <secret-name> - Describe a specific secret
