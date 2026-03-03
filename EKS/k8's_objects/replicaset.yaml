@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: customer
+  #namespace: appserver
   labels:
     app: packersmovers
 spec:
