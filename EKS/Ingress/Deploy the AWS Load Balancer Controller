@@ -57,9 +57,9 @@ aws eks update-kubeconfig --name cluster-name  --region region-code
 
 ########################### Install the TargetGroupBinding CRDs ###########################
 
-1) kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
+#1) kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
 
-2) kubectl get crd
+#2) kubectl get crd
 
 ############################# Deploy the Helm chart ###############################
 
