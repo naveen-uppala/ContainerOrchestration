@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: customer
+  name: frontend-deployment
   labels:
     app: packersmovers
 spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 1          # Maximum number of Pods that can be unavailable during the update
+      maxUnavailable: 0          # Maximum number of Pods that can be unavailable during the update
       maxSurge: 1                # Maximum number of Pods that can be created above the desired replica count
   revisionHistoryLimit: 10
   replicas: 6
@@ -21,23 +21,30 @@ spec:
         app: packersmovers
     spec:
       containers:
-      - name: customer
-        image: 841162679093.dkr.ecr.us-east-1.amazonaws.com/customer:6
+      - name: frontend
+        image: 841162679093.dkr.ecr.us-east-1.amazonaws.com/frontend:6
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi        
         readinessProbe:
           httpGet:
-            path: /customer/ping          # Endpoint to check for readiness (adjust according to your app)
-            port: 8080
+            path: /        # Endpoint to check for readiness (adjust according to your app)
+            port: 5000
           initialDelaySeconds: 20    # Wait 20 seconds before the first probe
           periodSeconds: 5         # Probe every 5 seconds
           timeoutSeconds: 2         # Timeout if the probe takes longer than 2 seconds
           failureThreshold: 3       # Mark the Pod as not ready after 3 consecutive failures
         livenessProbe:
           httpGet:
-            path: /customer/ping     # must stay lightweight, never touch the DB
-            port: 8080
+            path: /    # must stay lightweight, never touch the DB
+            port: 5000
           periodSeconds: 10
           timeoutSeconds: 2
           failureThreshold: 3        # restart after ~30s of failures          
